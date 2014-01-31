@@ -3,6 +3,7 @@
 #include <thread>
 #include <chrono>
 #include <memory>
+#include <limits>
 #include "grid_monothread.h"
 
 class main_grid_monothread : public grid_monothread {
@@ -50,9 +51,10 @@ void main_grid_monothread::after_run() {
 
 int main(int argc,const char * argv[]) {
   main_grid_monothread gm(10);
-  dims len(8);
+  dims len(9);
   int guess(0);
-  if(sizeof(bitset) < static_cast<unsigned int>(len)) {
+  if(sizeof(bitset) * std::numeric_limits<unsigned char>::digits
+    < static_cast<unsigned int>(len)) {
     std::cout << "Recompile with larger bitset" << std::endl;
     return(-1);
   }

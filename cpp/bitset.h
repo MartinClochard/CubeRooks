@@ -6,7 +6,7 @@
 #include <cinttypes>
 
 /* bitset type. */
-typedef uint8_t bitset;
+typedef uint16_t bitset;
 /* dimensions for bitset type. This should be enough for
    the largest bitset types (uint64_t) as well. */
 typedef int8_t dims;
