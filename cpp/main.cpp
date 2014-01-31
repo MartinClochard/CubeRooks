@@ -50,7 +50,14 @@ void main_grid_monothread::after_run() {
 
 int main(int argc,const char * argv[]) {
   main_grid_monothread gm(10);
-  gm.run(8,0,true,std::chrono::milliseconds(1000));
+  dims len(8);
+  int guess(0);
+  if(sizeof(bitset) < static_cast<unsigned int>(len)) {
+    std::cout << "Recompile with larger bitset" << std::endl;
+    return(-1);
+  }
+  gm.run(len,guess,true,std::chrono::milliseconds(1000));
   gm.after_run();
+  return(0);
 }
 
