@@ -445,7 +445,7 @@ namespace {
       int max_possible_card(cce > lc ? lc : cce);
       //This is what we are really allowed to place in the remaining space.
       int allowed_rooks(max_possible_card - cc);
-      if(max_possible_card * y + allowed_rooks + s.g0.rooks < s.optimum_so_far) {
+      if(max_possible_card * y + allowed_rooks + s.g0.rooks <= s.optimum_so_far) {
         //Well, we obviously will not find anything better here.
         return false;
       }
